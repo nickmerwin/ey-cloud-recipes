@@ -30,6 +30,13 @@ sub vcl_fetch {
   # if (obj.ttl < 120s) {
   #   set obj.ttl = 120s;
   # }
+  
+  # can't get rails to stop sending a session cookie; deal with this in the cache control header instead!
+  if (req.http.cookie ~ "session") {
+    pass;
+  } else {
+    unset obj.http.Set-Cookie;
+  }
 } 
 
 sub vcl_deliver {
