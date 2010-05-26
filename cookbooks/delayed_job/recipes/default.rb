@@ -6,7 +6,7 @@
 if ['solo', 'util'].include?(node[:instance_role])
 
   # be sure to replace "app_name" with the name of your application.
-  run_for_app("fotog") do |app_name, data|
+  run_for_app("leadgennetwork") do |app_name, data|
   
     # determine the number of workers to run based on instance size
     if node[:instance_role] == 'solo'
