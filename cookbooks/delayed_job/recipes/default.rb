@@ -3,11 +3,10 @@
 # Recipe:: default
 #
 
-if ['solo', 'util'].include?(node[:instance_role])
+node[:applications].each do |app_name,data|
 
-  # be sure to replace "app_name" with the name of your application.
-  run_for_app("leadgennetwork") do |app_name, data|
-  
+  if ['solo', 'util', 'app', 'app_master'].include?(node[:instance_role])
+
     # determine the number of workers to run based on instance size
     if node[:instance_role] == 'solo'
       worker_count = 1
