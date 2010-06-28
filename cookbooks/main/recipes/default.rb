@@ -54,6 +54,6 @@
 #uncomment to include the emacs recipe
 #require_recipe "emacs"
 
-require_recipe "varnish"
+# require_recipe "varnish"
 
 require_recipe "delayed_job"
